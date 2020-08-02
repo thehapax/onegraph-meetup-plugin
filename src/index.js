@@ -2,19 +2,21 @@ import t from 'prop-types';
 import React, {Component} from 'react';
 import formatDate from 'date-fns/format';
 
-const APP_ID = '668cbecb-e3ee-455d-8a8c-e0fd18ca8016';
+const APP_ID = '0d73e825-0f74-424d-bf88-beb4e0dc4f9b';
 
-const QUERY_ID = '05fedf2d-1f0c-45d5-9996-9afc99f88420';
-// Query:
+const QUERY_ID = 'tk8CyybQJhNg-R2vmKR0LQb_sc9i7OSBG-9vP-ToK1U';
+const DOC_ID = '686a3537-9bd3-4de6-8746-f4908e287f2b';
+
 // query MeetupEvents {
-//   meetup {
-//     makeRestCall {
+//  meetup {
+//    makeRestCall {
 //       get(
 //         path: "/find/upcoming_events"
 //         query: [
-//           ["radius", "global"],
-//           ["text", "graphql"],
+//           ["radius", "global"]
+//           ["text", "Bitcoin"]
 //           ["order", "time"]
+//           ["page", "100"]
 //         ]
 //       ) {
 //         jsonBody
@@ -23,13 +25,14 @@ const QUERY_ID = '05fedf2d-1f0c-45d5-9996-9afc99f88420';
 //   }
 // }
 
+
 async function fetchQuery(docId) {
   const resp = await fetch(
     'https://serve.onegraph.com/graphql?app_id=' + APP_ID,
     {
       method: 'POST',
       headers: {'Content-Type': 'application/json', Accept: 'application/json'},
-      body: JSON.stringify({doc_id: '05fedf2d-1f0c-45d5-9996-9afc99f88420'}),
+      body: JSON.stringify({doc_id: DOC_ID}),
     },
   );
   const json = await resp.json();
